@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin');
+
+* {
+    box-sizing: border-box;
+    font-family: "Libre Franklin", sans-serif;
+}
+
+body {
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+#textInput {
+    height: 2rem;
+    width: 70%;
+}
+
+#textInput:focus {
+    outline-style: aqua;
+}
