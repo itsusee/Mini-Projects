@@ -8,27 +8,29 @@
     </head>
     <body>
         <h1>Expense Tracker</h1>
-        <h3>Add a New Item</h3>
-        <div><label for="nameInput">Name:</label>
-        <input id="nameInput">
-        <label for="dateInput">Date:</label>
-        <input id="dateInput" type="date"></div>
-
-        <label for="amountInput">Amount:</label>
-        <input id="amountInput">
-
+        <h2>Add a New Item</h2>
+        <div id="container">
+            <div>
+                <label for="nameInput">Name:</label>
+                <input id="nameInput" placeholder="Where was the expense made?">
+            </div>
+            <div>
+                <label for="dateInput">Date:</label>
+                <input id="dateInput" type="date">
+            </div>
+            <div>
+                <label for="amountInput">Amount:</label>
+                <input id="amountInput" placeholder="Amount">
+            </div>
+        </div>
         <button id="submitBtn">Add Expense</button>
 
         <table id="expenseTable">
-            <tr>
+            <tr align="left">
                 <th>Name</th>
                 <th>Date</th>
                 <th>Amount</th>
-            </tr>
-            <tr>
-                <td>Mcdonalds</td>
-                <td>2020-09-18</td>
-                <td>$12</td>
+                <th>Del</th>
             </tr>
         </table>
 

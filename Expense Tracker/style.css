@@ -13,10 +13,69 @@ body {
     font-family: "Libre Franklin", sans-serif;
 }
 
+h1, h2 {
+    margin: 0.9rem;
+}
+
+h1 {
+    font-weight: normal;
+    font-size: 3rem;
+}
+
+h2 {
+    font-size: 2rem;
+    color: rgb(14, 133, 18);
+}
+
+#container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 80%;
+    gap: 5px;
+}
+
+#container > :nth-child(1) {
+    grid-column: 1 / span 2;
+    grid-row: 1;
+}
+
+#container > :nth-child(n+2) {
+    grid-row: 2;
+}
+
+label {
+    display: none;
+}
+
+input {
+    width: 100%;
+    height: 1.8rem;
+}
+
+#submitBtn {
+    color: white;
+    background-color: green;
+    border-radius: 8px;
+    border: none;
+    padding: 8px 15px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    margin: 1.9rem auto;
+}
+
+#submitBtn:hover {
+    background-color: hsl(120, 100%, 30%);
+}
+
+#submitBtn:active {
+    background-color: hsl(120, 100%, 35%);
+}
+
 table {
-    border: 2px solid black;
-    background-color: gainsboro;
+    border: 1px solid rgb(208, 208, 208);
     width: 90%;
+    border-collapse: collapse;
+    background-color: hsl(0, 0%, 96%);
 }
 
 table tr:first-child {
@@ -25,4 +84,8 @@ table tr:first-child {
 
 th, td {
     padding: 0.4rem;
+}
+
+td button {
+    cursor: pointer;
 }
