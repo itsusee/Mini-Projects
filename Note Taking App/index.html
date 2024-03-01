@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Note Taking App</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📝</text></svg>" type="image/svg+xml">
+    </head>
+    <body>
+        <h1>Note Taking App</h1>
+        <h2>Add a New Note</h2>
+
+        <div id="inputContainer">
+            <label id="inputLabel" for="textInput">Note:</label>
+            <textarea id="textInput" placeholder="Write your note here" rows="2" autofocus></textarea>
+        </div>
+
+        <button id="submitBtn">Add Note</button>
+
+        <div id="notes">
+        </div>
+
+        <div id="myModal">
+            <div id="modalContent">
+              <span id="close">&times;</span>
+              <p id="modalText"></p>
+            </div>
+        </div>
+        <script src="index.js"></script>
+    </body>
+</html>
