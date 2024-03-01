@@ -5,32 +5,35 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Expense Tracker</title>
         <link rel="stylesheet" href="style.css">
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💸</text></svg>" type="image/svg+xml">
     </head>
     <body>
         <h1>Expense Tracker</h1>
         <h2>Add a New Item</h2>
-        <div id="container">
+        <form id="formContainer">
             <div>
                 <label for="nameInput">Name:</label>
-                <input id="nameInput" placeholder="Where was the expense made?">
+                <input id="nameInput" placeholder="Where was the expense made?" autocomplete="off">
             </div>
             <div>
                 <label for="dateInput">Date:</label>
-                <input id="dateInput" type="date">
+                <input id="dateInput" type="date" autocomplete="off">
             </div>
             <div>
                 <label for="amountInput">Amount:</label>
-                <input id="amountInput" placeholder="Amount">
+                <input id="amountInput" placeholder="Amount" autocomplete="off">
             </div>
+        </form>
+        <div>
+            <button id="submitBtn" class="button">Add Expense</button>
+            <button id="delAllBtn" class="button">Delete All</button>
         </div>
-        <button id="submitBtn">Add Expense</button>
-
         <table id="expenseTable">
             <tr align="left">
                 <th>Name</th>
                 <th>Date</th>
                 <th>Amount</th>
-                <th>Del</th>
+                <th width="20">Del</th>
             </tr>
         </table>
 

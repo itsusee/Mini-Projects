@@ -27,40 +27,40 @@ h2 {
     color: rgb(14, 133, 18);
 }
 
-#container {
+#formContainer {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     width: 80%;
     gap: 5px;
 }
 
-#container > :nth-child(1) {
+#formContainer > :nth-child(1) {
     grid-column: 1 / span 2;
     grid-row: 1;
 }
 
-#container > :nth-child(n+2) {
+#formContainer > :nth-child(n+2) {
     grid-row: 2;
-}
-
-label {
-    display: none;
 }
 
 input {
     width: 100%;
-    height: 1.8rem;
+    height: 1.9rem;
+    font-size: 1.1rem;
 }
 
-#submitBtn {
+.button {
     color: white;
-    background-color: green;
     border-radius: 8px;
     border: none;
     padding: 8px 15px;
     font-size: 1.1rem;
     cursor: pointer;
-    margin: 1.9rem auto;
+    margin: 1.9rem 3px;
+}
+
+#submitBtn {
+    background-color: green;
 }
 
 #submitBtn:hover {
@@ -69,6 +69,18 @@ input {
 
 #submitBtn:active {
     background-color: hsl(120, 100%, 35%);
+}
+
+#delAllBtn {
+    background-color: red;
+}
+
+#delAllBtn:hover {
+    background-color: hsl(0, 100%, 45%);
+}
+
+#delAllBtn:active {
+    background-color: hsl(0, 100%, 40%);
 }
 
 table {
@@ -83,6 +95,7 @@ table tr:first-child {
 }
 
 th, td {
+    border: 1px solid rgb(208, 208, 208);
     padding: 0.4rem;
 }
 

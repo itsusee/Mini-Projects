@@ -1,27 +1,37 @@
 const getId = id => document.getElementById(id);
 
+const formContainerInput = getId("formContainer");
 const nameInput = getId("nameInput");
 const dateInput = getId("dateInput");
 const amountInput = getId("amountInput");
 
 const submitBtn = getId("submitBtn");
+const delAllBtn = getId("delAllBtn");
+
 const expenseTable = getId("expenseTable");
 
 const nothingPlaceHolder = document.createElement("tr");
 let nothingPlaceHolderContent = document.createElement("td");
-nothingPlaceHolderContent.id = 'placeholder';
+nothingPlaceHolderContent.id = "placeholder";
 nothingPlaceHolderContent.style.border = 'none';
-nothingPlaceHolderContent.textContent = 'No expenses';
+nothingPlaceHolderContent.textContent = "No expenses detected";
 nothingPlaceHolder.appendChild(nothingPlaceHolderContent);
 
-window.onload = () => {
+document.addEventListener("DOMContentLoaded", () => {
+    expenseTable.appendChild(nothingPlaceHolder);
     nameInput.value = "";
     dateInput.value = "";
     amountInput.value = "";
-}
+    formContainerInput.addEventListener("keydown", (event) => {
+        if (event.key === 'Enter') {
+            submit();
+        }
+    });
+});
 
-submitBtn.onclick = () => {
+function submit() {
     if (!nameInput.value || !dateInput.value || !amountInput.value) {
+        alert("All fields must be filled!");
         return;
     }
 
@@ -44,9 +54,6 @@ submitBtn.onclick = () => {
     amount.textContent = `$${amountInput.value}`;
     let newDelCol = document.createElement("td");
     let newDelColButton = document.createElement("button");
-    newDelColButton.onclick = function() {
-        this.parentElement.parentElement.remove();
-    }
     newDelColButton.textContent = "X";
     newDelCol.appendChild(newDelColButton);
 
@@ -54,11 +61,22 @@ submitBtn.onclick = () => {
     newExpense.appendChild(date);
     newExpense.appendChild(amount);
     newExpense.appendChild(newDelCol);
+    newDelColButton.onclick = () => newExpense.remove();
 
-    newExpense.addEventListener("mouseover", function() {this.style.backgroundColor = 'hsl(0, 0%, 90%)'})
-    newExpense.addEventListener("mouseout", function() {this.style.backgroundColor = 'hsl(0, 0%, 96%)'})
+    newExpense.addEventListener("mouseover", function() {this.style.backgroundColor = 'hsl(0, 0%, 90%)'});
+    newExpense.addEventListener("mouseout", function() {this.style.backgroundColor = 'hsl(0, 0%, 96%)'});
 
-    expenseTable.appendChild(newExpense)
+    expenseTable.appendChild(newExpense);
+}
+
+submitBtn.onclick = submit;
+
+delAllBtn.onclick = () => {
+    if (expenseTable.children.length > 1) {
+        for (let i = expenseTable.children.length - 1; i > 0; i--) {
+            expenseTable.removeChild(expenseTable.children[i]);
+        }
+    }
 }
 
 const observer = new MutationObserver(() => {
@@ -69,9 +87,5 @@ const observer = new MutationObserver(() => {
 
 observer.observe(expenseTable, {
     subtree: true,
-    childList: true,
-    characterData: true,
-    attributeOldValue: true
+    childList: true
 });
-
-expenseTable.appendChild(nothingPlaceHolder);
