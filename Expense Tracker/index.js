@@ -7,8 +7,6 @@ const amountInput = getId("amountInput");
 const submitBtn = getId("submitBtn");
 const expenseTable = getId("expenseTable");
 
-const buttons = document.querySelectorAll("td button");
-
 const nothingPlaceHolder = document.createElement("tr");
 let nothingPlaceHolderContent = document.createElement("td");
 nothingPlaceHolderContent.id = 'placeholder';
@@ -24,6 +22,11 @@ window.onload = () => {
 
 submitBtn.onclick = () => {
     if (!nameInput.value || !dateInput.value || !amountInput.value) {
+        return;
+    }
+
+    if (isNaN(Number(amountInput.value))) {
+        alert("Amount must be a number!");
         return;
     }
 
