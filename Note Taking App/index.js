@@ -25,23 +25,47 @@ submitBtn.onclick = () => {
     noteTitle.classList.add("noteTitle");
 
     const noteDesc = document.createElement("p");
-    noteDesc.textContent = `${textInput.value}`;
+    const actualTextContent = `${textInput.value}`;
+    noteDesc.textContent = actualTextContent;
+    
     noteDesc.classList.add("noteDesc");
 
     const detailButton = document.createElement("p");
     detailButton.textContent = "View Detail";
     detailButton.classList.add("detailBtn");
-    detailButton.onclick = () => {showDetail(noteDesc.textContent)};
+    detailButton.onclick = () => {showDetail(actualTextContent)};
 
     note.appendChild(noteTitle);
     note.appendChild(noteDesc);
     note.appendChild(detailButton);
 
     notes.appendChild(note);
-
     if (isOverflowing(noteDesc)) {
-        console.log('The paragraph is overflowing.');
+        console.log("Text is overflowing")
+        noteDesc.textContent = truncateToTwoLines(noteDesc, actualTextContent);
     }
+}
+
+function isOverflowing(element) {
+    return element.scrollHeight > element.clientHeight;
+}
+
+function truncateToTwoLines(element, text) {
+    const width = element.offsetWidth;
+    const charWidth = 8.75;
+    const maxChars = Math.floor(width / charWidth) * 2;
+    
+    let newText = text;
+    if (newText.length > maxChars) {
+        console.log("Truncate")
+        newText = newText.substring(0, maxChars) + '...';
+        return newText;
+    } else if (isOverflowing(element)) {
+        newText = '...';
+        return newText;
+    }
+    console.log("Dont truncate")
+    return text;
 }
 
 function showDetail(text) {
@@ -59,60 +83,22 @@ window.onclick = function(event) {
     }
 }
 
-function isOverflowing(element) {
-    // Ensure the element is a DOM element
-    if (!(element instanceof Element)) {
-        throw new Error('The argument must be a DOM element.');
-    }
-
-    // Compare the scroll height and client height
-    return element.scrollHeight > element.clientHeight;
-}
-
-// <textarea id="dynamicTextarea" rows="4" cols="50" style="resize: none;"></style>
-/*
 document.addEventListener('DOMContentLoaded', function() {
-    const textarea = document.getElementById('dynamicTextarea');
-
-    textarea.addEventListener('input', function() {
-        this.style.height = 'auto'; // Reset the height to auto to shrink the textarea
-        this.style.height = this.scrollHeight + 'px'; // Set the height to the scrollHeight to expand the textarea
+    textInput.value = "";
+    textInput.addEventListener("input", function() {
+        this.style.height = 'auto';
+        this.style.height = this.scrollHeight + 'px';
     });
 });
-*/
 
-/*
-function truncateToTwoLines(element) {
-    // Ensure the element is a DOM element
-    if (!(element instanceof Element)) {
-        throw new Error('The argument must be a DOM element.');
-    }
+window.addEventListener("resize", adjustTextArea);
 
-    // Check if the element is overflowing
-    if (!isOverflowing(element)) {
-        return; // No need to truncate if it's not overflowing
-    }
-
-    // Calculate the width of the element
-    const width = element.offsetWidth;
-
-    // Calculate the approximate width of a character
-    // This is a rough estimate and might need adjustment based on the font
-    const charWidth = 8; // Adjust this value based on your font
-
-    // Calculate the maximum number of characters that can fit in two lines
-    const maxChars = Math.floor(width / charWidth) * 2;
-
-    // Truncate the text to fit within the two-line limit
-    let text = element.textContent;
-    if (text.length > maxChars) {
-        text = text.substring(0, maxChars) + '...';
-        element.textContent = text;
+function adjustTextArea() {
+    if (window.innerWidth <= 740) {
+        textInput.rows = 5;
+    } else {
+        textInput.rows = 2;
     }
 }
 
-// Example usage:
-// Assuming there's a <p> element with the id "myParagraph"
-const myParagraph = document.getElementById('myParagraph');
-truncateToTwoLines(myParagraph);
-*/
+adjustTextArea();

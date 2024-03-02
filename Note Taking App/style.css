@@ -27,6 +27,11 @@ h2 {
     color: rgb(14, 133, 18);
 }
 
+@media only screen and (max-width: 402px) {
+    h1 {font-size: 2rem;}
+    h2 {font-size: 1.2rem;}
+}
+
 #inputContainer {
     display: flex;
     width: 70%;
@@ -34,18 +39,22 @@ h2 {
 }
 
 #inputLabel {
-    padding: 0.1rem 0.5rem;
-    margin-right: 8px;
     text-align: center;
-    width: 5%;
-    font-size: 1.5rem;
+    width: 7%;
+    font-size: calc(1vw + 1vh);
 }
 
 #textInput {
-    width: 95%;
+    width: 93%;
     padding: 0.5rem;
     border-radius: 5px;
-    font-size: large
+    font-size: large;
+    resize: none;
+}
+
+@media only screen and (max-width: 720px) {
+    #inputLabel {display: none;}
+    #textInput {width: 100%;}
 }
 
 #submitBtn {
@@ -71,7 +80,16 @@ h2 {
     width: 70%;
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 20px;
+    gap: 15px;
+}
+
+@media only screen and (max-width: 740px) {
+    #notes {grid-template-columns: repeat(1, minmax(0, 1fr))}
+    .note:nth-last-child(1),
+    .note:nth-last-child(2) {
+        margin-bottom: 0;
+    }
+    .note:last-child {margin-bottom: 20px;}
 }
 
 .note {
@@ -80,12 +98,19 @@ h2 {
     padding: 17px;
 }
 
+.note:nth-last-child(1),
+.note:nth-last-child(2) {
+    margin-bottom: 20px;
+}
+
 .noteTitle {
     margin-top: 10px;
 }
 
 .noteDesc {
-    white-space: pre-wrap;
+    overflow: auto;
+    overflow-wrap: break-word;
+    white-space: break-spaces;
     max-height: 38px;
 }
 
@@ -124,11 +149,16 @@ h2 {
   
   /* Modal Content/Box */
 #modalContent {
-    background-color: #fefefe;
+    background-color: white;
     margin: 15% auto; /* 15% from the top and centered */
     padding: 20px;
     border: 1px solid #888;
     width: 80%; /* Could be more or less, depending on screen size */
+    border-radius: 5px;
+}
+
+#modalText {
+    white-space: pre-wrap;
 }
 
 #close {
@@ -140,7 +170,7 @@ h2 {
   
 #close:hover,
 #close:focus {
-    color: black;
+    color: #838383;
     text-decoration: none;
     cursor: pointer;
 }
