@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Memory Game</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧠</text></svg>" type="image/svg+xml">
+    </head>
+    <body>
+        <div id="container">
+            <h1>MEMORY GAME</h1>
+            <div id="cards">
+                <div class="card"><img class="cardImage" width="100" src="assets/frog.png"></div>
+                <div class="card"><img class="cardImage" width="100" src="assets/frog.png"></div>
+                <div class="card"><img class="cardImage" width="100" src="assets/elephant.png"></div>
+                <div class="card"><img class="cardImage" width="100" src="assets/elephant.png"></div>
+                <div class="card"><img class="cardImage" width="100" src="assets/fox.png"></div>
+                <div class="card"><img class="cardImage" width="100" src="assets/fox.png"></div>
+                <div class="card"><img class="cardImage" width="100" src="assets/baby.png"></div>
+                <div class="card"><img class="cardImage" width="100" src="assets/baby.png"></div>
+                <div class="card"><img class="cardImage" width="100" src="assets/cat.png"></div>
+                <div class="card"><img class="cardImage" width="100" src="assets/cat.png"></div>
+                <div class="card"><img class="cardImage" width="100" src="assets/dog.png"></div>
+                <div class="card"><img class="cardImage" width="100" src="assets/dog.png"></div>
+                <div class="card"><img class="cardImage" width="100" src="assets/wolf.png"></div>
+                <div class="card"><img class="cardImage" width="100" src="assets/wolf.png"></div>
+                <div class="card"><img class="cardImage" width="100" src="assets/eagle.png"></div>
+                <div class="card"><img class="cardImage" width="100" src="assets/eagle.png"></div>
+            </div>
+            <div id="text">
+                <p>Score: <span id="scoreDisplay">0</span></p>
+                <p>Failed attempts: <span id="failedAttempts">0</span></p>
+            </div>
+            <button id="resetButton" onclick="resetGame()">RESET GAME</button>
+        </div>
+
+        <script src="index.js"></script>
+    </body>
+</html>
