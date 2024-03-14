@@ -7,6 +7,7 @@ const amountInput = getId("amountInput");
 
 const submitBtn = getId("submitBtn");
 const delAllBtn = getId("delAllBtn");
+const saveItemsBtn = getId("saveItemsBtn");
 
 const expenseTable = getId("expenseTable");
 
@@ -72,6 +73,14 @@ function submit() {
 submitBtn.onclick = submit;
 
 delAllBtn.onclick = () => {
+    if (expenseTable.children.length > 1) {
+        for (let i = expenseTable.children.length - 1; i > 0; i--) {
+            expenseTable.removeChild(expenseTable.children[i]);
+        }
+    }
+}
+
+saveItemsBtn.onclick = () => {
     if (expenseTable.children.length > 1) {
         for (let i = expenseTable.children.length - 1; i > 0; i--) {
             expenseTable.removeChild(expenseTable.children[i]);

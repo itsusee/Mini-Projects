@@ -83,6 +83,19 @@ input {
     background-color: hsl(0, 100%, 40%);
 }
 
+#saveItemsBtn {
+    background-color: gainsboro;
+    color: black;
+}
+
+#saveItemsBtn:hover {
+    background-color: hsl(0, 0%, 81%);
+}
+
+#saveItemsBtn:active {
+    background-color: hsl(0, 0%, 76%);
+}
+
 table {
     border: 1px solid rgb(208, 208, 208);
     width: 90%;
