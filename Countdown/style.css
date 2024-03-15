@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    font-family: "Libre Franklin";
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    background: #FFAE42;
+    background-size: 200% 200%;
+    animation: colorChange 50s linear infinite;
+}
+
+h1, h3 {
+    font-weight: normal;
+}
+
+h1 {
+    margin-bottom: 0.5rem;
+}
+
+.display {
+    font-size: 1.8rem;
+}
+
+@keyframes colorChange {
+    0.00% {
+        background: #FFAE42;
+    }
+    8.33% {
+        background: yellow;
+    }
+    16.66% {
+        background: yellowgreen;
+    }
+    25.00% {
+        background: green;
+    }
+    33.33% {
+        background: #0D98BA;
+    }
+    41.67% {
+        background: #0D98BA;
+    }
+    50.00% {
+        background: #0D98BA;
+    }
+    58.33% {
+        background: #8a2be2;
+    }
+    66.66% {
+        background: violet;
+    }
+    75.00% {
+        background: #c71585;
+    }
+    83.33% {
+        background: red;
+    }
+    91.67% {
+        background: #FF5349;
+    }
+    100% {
+        background: orange;
+    }
+}
