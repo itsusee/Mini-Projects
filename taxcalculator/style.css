@@ -19,20 +19,8 @@ input[type="number"] {
     text-align: center;
 }
 
-table {
-    border: 1px solid rgb(208, 208, 208);
-    border-collapse: collapse;
-    background-color: hsl(0, 0%, 96%);
-    margin: auto;
-}
-
-table tr:first-child {
-    background-color: white;
-}
-
-th, td {
-    border: 1px solid rgb(208, 208, 208);
-    padding: 0.4rem;
+button:hover {
+    cursor: pointer;
 }
 
 #container {
@@ -40,4 +28,40 @@ th, td {
     width: 90%;
     background-color: azure;
     text-align: center;
+}
+
+table#resultTable {
+    border: 1px solid rgb(208, 208, 208);
+    border-collapse: collapse;
+    background-color: hsl(0, 0%, 96%);
+    margin: auto;
+}
+
+table#resultTable tr:first-child {
+    background-color: white;
+}
+
+table#resultTable th, table#resultTable td {
+    border: 1px solid rgb(208, 208, 208);
+    padding: 0.4rem;
+}
+
+table#showBracketTable {
+    border: 1px solid rgb(208, 208, 208);
+    border-collapse: collapse;
+    background-color: hsl(0, 0%, 96%);
+    margin: auto;
+}
+
+table#showBracketTable tr {
+    text-align: left;
+}
+
+table#showBracketTable tr:nth-child(odd) {
+    background-color: white;
+}
+
+table#showBracketTable th, table#showBracketTable td {
+    border: 1px solid rgb(208, 208, 208);
+    padding: 0.4rem;
 }

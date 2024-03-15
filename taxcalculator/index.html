@@ -10,7 +10,7 @@
     <body>
         <div id="container">
             <h1>2023 Single Filer Tax Calulator</h1>
-            <label for="grossIncome">Gross Income on W-2/1099:</label>
+            <label for="grossIncomeInput">Gross Income on W-2/1099:</label>
             <input id="grossIncomeInput" type="number" value="0" min="0" step="1000" placeholder="100000"><br><br>
             
             <label for="deductionInput">Deductions:</label>
@@ -28,12 +28,16 @@
 
             <br><br><button onclick="calulateTax()">Submit</button><br><br>
 
-            <table>
+            <table id="resultTable">
                 <tr>
                     <th>Taxable Income</th>
                     <th>10% Bracket</th>
                     <th>12% Bracket</th>
                     <th>22% Bracket</th>
+                    <th>24% Bracket</th>
+                    <th>32% Bracket</th>
+                    <th>35% Bracket</th>
+                    <th>37% Bracket</th>
                     <th>Total Taxes Owed</th>
                     <th>Marginal Tax Rate</th>
                     <th>Effective Tax Rate</th>
@@ -43,6 +47,10 @@
                     <td>$<span id="bracket10Col"></span></td>
                     <td>$<span id="bracket12Col"></span></td>
                     <td>$<span id="bracket22Col"></span></td>
+                    <td>$<span id="bracket24Col"></span></td>
+                    <td>$<span id="bracket32Col"></span></td>
+                    <td>$<span id="bracket35Col"></span></td>
+                    <td>$<span id="bracket37Col"></span></td>
                     <td>$<span id="totalTaxCol"></span></td>
                     <td><span id="marginalTaxCol"></span></td>
                     <td><span id="effectiveTaxCol"></span></td>
@@ -51,6 +59,41 @@
 
             <h2>Your withholded taxes are... <span id="withholdedTaxes"></span></h2>
             <h2>I estimate you will <span id="taxResult"></span></h2>
+
+            <table id="showBracketTable">
+                <tr>
+                    <th>Tax Rate</th>
+                    <th>For Single Filers</th>
+                </tr>
+                <tr>
+                    <td>10%</td>
+                    <td>$0 to $11,000</td>
+                </tr>
+                <tr>
+                    <td>12%</td>
+                    <td>$11,000 to $44,725</td>
+                </tr>
+                <tr>
+                    <td>22%</td>
+                    <td>$44,725 to $93,375</td>
+                </tr>
+                <tr>
+                    <td>24%</td>
+                    <td>$95,375 to $182,100</td>
+                </tr>
+                <tr>
+                    <td>32%</td>
+                    <td>$182,100 to $231,250</td>
+                </tr>
+                <tr>
+                    <td>35%</td>
+                    <td>$231,250 to $578,125</td>
+                </tr>
+                <tr>
+                    <td>37%</td>
+                    <td>$578,125 or more </td>
+                </tr>
+            </table>
         </div>
         <div style="position: absolute; bottom: 0; left: 0;">Made by Brayzen Chase</div>
 
