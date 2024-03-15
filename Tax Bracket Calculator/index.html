@@ -8,26 +8,51 @@
         <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💸</text></svg>" type="image/svg+xml">
     </head>
     <body>
-        <label for="grossIncome">Put your gross income here:</label>
-        <input type="text" id="grossIncomeInput">
-        <button onclick="calulateTax()">Submit</button>
+        <div id="container">
+            <h1>2023 Single Filer Tax Calulator</h1>
+            <label for="grossIncome">Gross Income on W-2/1099:</label>
+            <input id="grossIncomeInput" type="number" value="0" min="0" step="1000" placeholder="100000"><br><br>
+            
+            <label for="deductionInput">Deductions:</label>
+            <input id="deductionInput" type="number" value="13850" min="0" step="1000" readonly><br><br>
 
-        <table>
-            <tr>
-                <th>Taxable Income after Deductions</th>
-                <th>10% Bracket</th>
-                <th>12% Bracket</th>
-                <th>22% Bracket</th>
-                <th>Total Taxes Owed</th>
-            </tr>
-            <tr align="center">
-                <td id="afterDeductCol"></td>
-                <td id="bracket10Col"></td>
-                <td id="bracket12Col"></td>
-                <td id="bracket22Col"></td>
-                <td id="totalTaxCol"></td>
-            </tr>
-        </table>
+            <label for="standardDeduction">Standard Deduction:</label>
+            <input id="standardDeduction" type="radio" value="standardDeduction" name="selectDeduction">
+            <label for="itemizeDeduction">Itemize Deduction:</label>
+            <input id="itemizeDeduction" type="radio" value="itemizeDeduction "name="selectDeduction"><br><br>
+
+            <label for="creditsInput">Tax Credits:</label>
+            <input id="creditsInput" type="number" placeholder="0" min="0" step="100">
+            <label for="withholdedTaxesInput">Withholded Taxes on W-2/1099:</label>
+            <input id="withholdedTaxesInput" type="number" placeholder="0" min="0" step="100">
+
+            <br><br><button onclick="calulateTax()">Submit</button><br><br>
+
+            <table>
+                <tr>
+                    <th>Taxable Income</th>
+                    <th>10% Bracket</th>
+                    <th>12% Bracket</th>
+                    <th>22% Bracket</th>
+                    <th>Total Taxes Owed</th>
+                    <th>Marginal Tax Rate</th>
+                    <th>Effective Tax Rate</th>
+                </tr>
+                <tr align="center">
+                    <td>$<span id="taxableIncomeCol"></span></td>
+                    <td>$<span id="bracket10Col"></span></td>
+                    <td>$<span id="bracket12Col"></span></td>
+                    <td>$<span id="bracket22Col"></span></td>
+                    <td>$<span id="totalTaxCol"></span></td>
+                    <td><span id="marginalTaxCol"></span></td>
+                    <td><span id="effectiveTaxCol"></span></td>
+                </tr>
+            </table>
+
+            <h2>Your withholded taxes are... <span id="withholdedTaxes"></span></h2>
+            <h2>I estimate you will <span id="taxResult"></span></h2>
+        </div>
+        <div style="position: absolute; bottom: 0; left: 0;">Made by Brayzen Chase</div>
 
         <script src="index.js"></script>
     </body>
