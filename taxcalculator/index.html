@@ -14,7 +14,7 @@
             <input id="grossIncomeInput" type="number" value="0" min="0" step="1000" placeholder="100000"><br><br>
             
             <label for="deductionInput">Deductions:</label>
-            <input id="deductionInput" type="number" value="13850" min="0" step="1000" readonly><br><br>
+            <input id="deductionInput" class="dontShowArrows" type="number" value="13850" min="0" step="1000" readonly><br><br>
 
             <label for="standardDeduction">Standard Deduction:</label>
             <input id="standardDeduction" type="radio" value="standardDeduction" name="selectDeduction">
@@ -28,34 +28,36 @@
 
             <br><br><button onclick="calulateTax()">Submit</button><br><br>
 
-            <table id="resultTable">
-                <tr>
-                    <th>Taxable Income</th>
-                    <th>10% Bracket</th>
-                    <th>12% Bracket</th>
-                    <th>22% Bracket</th>
-                    <th>24% Bracket</th>
-                    <th>32% Bracket</th>
-                    <th>35% Bracket</th>
-                    <th>37% Bracket</th>
-                    <th>Total Taxes Owed</th>
-                    <th>Marginal Tax Rate</th>
-                    <th>Effective Tax Rate</th>
-                </tr>
-                <tr align="center">
-                    <td>$<span id="taxableIncomeCol"></span></td>
-                    <td>$<span id="bracket10Col"></span></td>
-                    <td>$<span id="bracket12Col"></span></td>
-                    <td>$<span id="bracket22Col"></span></td>
-                    <td>$<span id="bracket24Col"></span></td>
-                    <td>$<span id="bracket32Col"></span></td>
-                    <td>$<span id="bracket35Col"></span></td>
-                    <td>$<span id="bracket37Col"></span></td>
-                    <td>$<span id="totalTaxCol"></span></td>
-                    <td><span id="marginalTaxCol"></span></td>
-                    <td><span id="effectiveTaxCol"></span></td>
-                </tr>
-            </table>
+            <div style="overflow-x: auto;">
+                <table id="resultTable">
+                    <tr>
+                        <th>Taxable Income</th>
+                        <th>10% Bracket</th>
+                        <th>12% Bracket</th>
+                        <th>22% Bracket</th>
+                        <th>24% Bracket</th>
+                        <th>32% Bracket</th>
+                        <th>35% Bracket</th>
+                        <th>37% Bracket</th>
+                        <th>Total Taxes Owed</th>
+                        <th>Marginal Tax Rate</th>
+                        <th>Effective Tax Rate</th>
+                    </tr>
+                    <tr align="center">
+                        <td>$<span id="taxableIncomeCol"></span></td>
+                        <td>$<span id="bracket10Col"></span></td>
+                        <td>$<span id="bracket12Col"></span></td>
+                        <td>$<span id="bracket22Col"></span></td>
+                        <td>$<span id="bracket24Col"></span></td>
+                        <td>$<span id="bracket32Col"></span></td>
+                        <td>$<span id="bracket35Col"></span></td>
+                        <td>$<span id="bracket37Col"></span></td>
+                        <td>$<span id="totalTaxCol"></span></td>
+                        <td><span id="marginalTaxCol"></span></td>
+                        <td><span id="effectiveTaxCol"></span></td>
+                    </tr>
+                </table>
+            </div>
 
             <h2>Your withholded taxes are... <span id="withholdedTaxes"></span></h2>
             <h2>I estimate you will <span id="taxResult"></span></h2>

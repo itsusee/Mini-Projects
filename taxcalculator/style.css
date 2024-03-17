@@ -19,15 +19,35 @@ input[type="number"] {
     text-align: center;
 }
 
+.dontShowArrows {
+    -moz-appearance: textfield; /* FireFox */
+    -webkit-appearance: textfield; /* Webkit */
+    appearance: textfield; /* Other */
+}
+
+.dontShowArrows::-webkit-outer-spin-button,
+.dontShowArrows::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
 button:hover {
     cursor: pointer;
 }
 
 #container {
-    height: 90%;
-    width: 90%;
+    height: 95%;
+    width: 95%;
     background-color: azure;
     text-align: center;
+    overflow-y: auto;
+
+    scrollbar-width: none;
+    -ms-overflow-style: none; 
+}
+
+#container::-webkit-scrollbar {
+    display: none;
 }
 
 table#resultTable {

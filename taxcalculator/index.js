@@ -16,6 +16,7 @@ window.onload = () => {
     standardDeduction.checked = true;
     itemizeDeduction.checked = false;
     deductionInput.value = 13850;
+    deductionInput.classList.add("dontShowArrows");
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -24,9 +25,11 @@ document.addEventListener("DOMContentLoaded", () => {
             selectedDeduction = event.target.value;
             if (selectedDeduction == itemizeDeduction.value) {
                 deductionInput.removeAttribute("readonly");
+                deductionInput.classList.remove("dontShowArrows");
                 deductionInput.value = 0;
             } else {
                 deductionInput.setAttribute("readonly", "");
+                deductionInput.classList.add("dontShowArrows");
                 deductionInput.value = 13850;
             }
         })
